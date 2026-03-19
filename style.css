@@ -1,0 +1,235 @@
+:root {
+    --bg-color: #0a192f;
+    --primary-text: #ccd6f6;
+    --secondary-text: #8892b0;
+    --accent-color: #64ffda;
+    --card-bg: #112240;
+    --highlight-bg: rgba(100, 255, 218, 0.1);
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Pretendard', -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--primary-text);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+.spotlight {
+    position: fixed;
+    width: 300px;
+    height: 300px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(29, 78, 216, 0.15) 0%, rgba(29, 78, 216, 0) 70%);
+    pointer-events: none;
+    transform: translate(-50%, -50%);
+    transition: background 0.2s ease-out;
+    z-index: 9999;
+}
+
+.wrapper {
+    display: flex;
+    max-width: 1600px;
+    margin: 0 auto;
+}
+
+.left-panel {
+    width: 45%;
+    position: fixed;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 5rem;
+}
+
+.header-content h1 {
+    font-size: 3.5rem;
+    color: var(--primary-text);
+    font-weight: 700;
+}
+
+.profile-container {
+    margin-bottom: 2rem;
+}
+
+.profile-img {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid var(--accent-color);
+    box-shadow: 0 0 20px rgba(100, 255, 218, 0.2);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.profile-img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 30px rgba(100, 255, 218, 0.4);
+}
+
+.header-content .subtitle {
+    font-size: 1.5rem;
+    color: var(--primary-text);
+    margin-top: 0.5rem;
+}
+
+.header-content .header-intro {
+    margin-top: 1rem;
+    color: var(--secondary-text);
+    max-width: 400px;
+}
+
+nav {
+    margin-top: 3rem;
+}
+
+nav ul {
+    list-style: none;
+}
+
+nav li {
+    margin-bottom: 1rem;
+}
+
+.nav-link {
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: var(--secondary-text);
+    font-weight: 700;
+    transition: all 0.3s ease;
+}
+
+.nav-indicator {
+    width: 30px;
+    height: 2px;
+    background-color: var(--secondary-text);
+    margin-right: 1rem;
+    transition: all 0.3s ease;
+}
+
+.nav-link:hover .nav-indicator, .nav-link.active .nav-indicator {
+    width: 60px;
+    background-color: var(--primary-text);
+}
+
+.nav-link:hover .nav-text, .nav-link.active .nav-text {
+    color: var(--primary-text);
+}
+
+.social-links {
+    margin-top: auto;
+    display: flex;
+    gap: 1.5rem;
+}
+
+.social-links a {
+    color: var(--secondary-text);
+    font-size: 1.5rem;
+    transition: color 0.3s ease;
+}
+
+.social-links a:hover {
+    color: var(--accent-color);
+}
+
+.right-panel {
+    width: 55%;
+    margin-left: 45%;
+    padding: 5rem;
+}
+
+.content-section {
+    margin-bottom: 8rem;
+    scroll-margin-top: 5rem;
+}
+
+.section-title {
+    display: none; /* Hidden as per reference design */
+}
+
+.card {
+    background-color: transparent;
+    padding: 1.5rem;
+    border-radius: 4px;
+    margin-bottom: 1.5rem;
+    transition: background-color 0.3s ease;
+}
+
+.card:hover {
+    background-color: var(--card-bg);
+}
+
+.experience-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 0.5rem;
+}
+
+.experience-title {
+    color: var(--primary-text);
+    font-size: 1.2rem;
+}
+
+.experience-period {
+    color: var(--secondary-text);
+    font-size: 0.9rem;
+}
+
+.experience-company {
+    font-weight: 600;
+    color: var(--secondary-text);
+    margin-bottom: 1rem;
+}
+
+.tech-stack {
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-top: 1rem;
+}
+
+.tech-stack li {
+    background-color: var(--highlight-bg);
+    color: var(--accent-color);
+    padding: 0.3rem 0.7rem;
+    border-radius: 15px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+footer {
+    padding: 2rem 0;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--secondary-text);
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+    .wrapper {
+        flex-direction: column;
+    }
+    .left-panel, .right-panel {
+        width: 100%;
+        position: static;
+        height: auto;
+        margin-left: 0;
+        padding: 2rem;
+    }
+    .left-panel {
+        padding-bottom: 0;
+    }
+    .header-content h1 {
+        font-size: 2.5rem;
+    }
+}
